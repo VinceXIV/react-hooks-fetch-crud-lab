@@ -10,9 +10,7 @@ function QuestionItem({ question, handleDeleteQuestion }) {
   ));
 
   function handleDeleteClick(event){
-    const questionId = event.target.parentElement.id
-
-    fetch(`http://localhost:4000/questions/${questionId}`, {
+    fetch(`http://localhost:4000/questions/${question.id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -20,11 +18,11 @@ function QuestionItem({ question, handleDeleteQuestion }) {
       }
     })
     .then(result => result.json())
-    .then(data => handleDeleteQuestion(questionId))
+    .then(data => handleDeleteQuestion(question.id))
   }
 
   return (
-    <li id={question.id}>
+    <li>
       <h4>Question {id}</h4>
       <h5>Prompt: {prompt}</h5>
       <label>
