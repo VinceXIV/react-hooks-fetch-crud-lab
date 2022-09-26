@@ -3,7 +3,11 @@ import QuestionItem from "./QuestionItem";
 
 function QuestionList({questions, handleDeleteQuestion}) {
 
-  const questionList = questions.map(question => <QuestionItem key={questions.id} question={question} handleDeleteQuestion={handleDeleteQuestion}/>)
+  let questionNo = 0
+  const questionList = questions.map(question => {
+    questionNo++
+  return <QuestionItem key={questions.id} question={question} questionNo={questionNo} handleDeleteQuestion={handleDeleteQuestion}/>
+})
 
   return (
     <section>
