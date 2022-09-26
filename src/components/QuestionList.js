@@ -1,9 +1,9 @@
 import React from "react";
 import QuestionItem from "./QuestionItem";
 
-function QuestionList({questions}) {
+function QuestionList({questions, handleDeleteQuestion}) {
 
-  const questionList = questions.map(question => <QuestionItem key={questions.id} question={question}/>)
+  const questionList = questions.map(question => <QuestionItem key={questions.id} question={question} handleDeleteQuestion={handleDeleteQuestion}/>)
 
   return (
     <section>
