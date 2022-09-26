@@ -3,7 +3,7 @@ import QuestionItem from "./QuestionItem";
 
 function QuestionList({questions}) {
 
-  const questionList = questions.map(question => <QuestionItem question={question}/>)
+  const questionList = questions.map(question => <QuestionItem key={questions.id} question={question}/>)
 
   return (
     <section>
