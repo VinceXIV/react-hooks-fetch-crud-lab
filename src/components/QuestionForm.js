@@ -1,14 +1,8 @@
 import React, { useState } from "react";
 
 function QuestionForm({handleAddQuestion}) {
-  const [formData, setFormData] = useState({
-    prompt: "",
-    answer1: "",
-    answer2: "",
-    answer3: "",
-    answer4: "",
-    correctIndex: 0,
-  });
+  const defaultState = {prompt: "", answer1: "", answer2: "",answer3: "", answer4: "", correctIndex: 0}
+  const [formData, setFormData] = useState(defaultState);
 
   function handleChange(event) {
     setFormData({
@@ -38,6 +32,7 @@ function QuestionForm({handleAddQuestion}) {
     })
     .then(result => result.json())
     .then(data => {
+      setFormData(defaultState)
       handleAddQuestion(data)
     });
   }
